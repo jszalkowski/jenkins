@@ -15,6 +15,7 @@ for(i in bfprojects) {
     }
     definition {
       cpsScm {
+        scriptPath 'Jenkinsfile.new'
         scm {
           git {
             remote {

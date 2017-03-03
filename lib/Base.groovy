@@ -43,7 +43,7 @@ class Base {
 
         slackNotifier {
           room this.promotion ? '#release' : '#jenkins'
-          integrationToken this.config.slack_token
+          authToken this.config.slack_token
           configure { node ->
             notifySuccess this.promotion ? true : false
             notifyAborted this.promotion ? false : true
@@ -57,6 +57,9 @@ class Base {
             includeTestSummary false
             includeCustomMessage true
             customMessage this.slack_message ? this.slack_message : this.config.slack_message
+						buildServerUrl 'jenkins'
+						sendAs 'jenkins'
+						commitInfoChoice 'NONE'
           }
         }
       }

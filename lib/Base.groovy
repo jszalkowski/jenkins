@@ -41,8 +41,8 @@ class Base {
           excludePattern 'pipeline.properties'
         }
 
-        slackNotifications {
-          projectChannel this.promotion ? '#release' : '#jenkins'
+        slackNotifier {
+          room this.promotion ? '#release' : '#jenkins'
           integrationToken this.config.slack_token
           configure { node ->
             notifySuccess this.promotion ? true : false
